@@ -273,6 +273,9 @@ class TestCase(object):
   def IsNoStrict(self):
     return 'noStrict' in self.testRecord
 
+  def IsEs6(self):
+    return 'es6id' in self.testRecord
+
   def IsAsyncTest(self):
     return '$DONE' in self.test
 
@@ -466,13 +469,13 @@ class TestSuite(object):
             else:
               if not self.non_strict_only:
                 strict_case = TestCase(self, name, full_path, True)
-                if not strict_case.IsNoStrict():
+                if not strict_case.IsNoStrict() and not strict_case.IsEs6():
                   if strict_case.IsOnlyStrict() or \
                         self.unmarked_default in ['both', 'strict']:
                     cases.append(strict_case)
               if not self.strict_only:
                 non_strict_case = TestCase(self, name, full_path, False)
-                if not non_strict_case.IsOnlyStrict():
+                if not non_strict_case.IsOnlyStrict() and not non_strict_case.IsEs6():
                   if non_strict_case.IsNoStrict() or \
                         self.unmarked_default in ['both', 'non_strict']:
                     cases.append(non_strict_case)
