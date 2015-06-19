@@ -2,4 +2,8 @@
 <excludeList>   
   <test id="S7.4_A5" />
   <test id="S7.4_A6" />
+  <test id="S7.8.5_A1.1_T2" />
+  <test id="S7.8.5_A1.4_T2" />
+  <test id="S7.8.5_A2.1_T2" />
+  <test id="S7.8.5_A2.4_T2" />
 </excludeList> 
